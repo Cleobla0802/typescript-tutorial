@@ -1,9 +1,10 @@
-/**
+
+ /**
  * 01 - DECLARACIÓN DE VARIABLES: var, let y const
  *
  * Ejecutar:  npm run play -- src/01-variables/demo.ts
  */
-
+/*
 // ---------- const ----------
 // Ámbito de bloque. No se puede reasignar. Debe inicializarse.
 const nombre = "Fran";
@@ -22,14 +23,14 @@ conVar = "Pepito";
 console.log(`fuera del if  -> conVar = ${conVar}`);
 
 // console.log(conLet);  // Error: Cannot find name 'conLet'.
-
+*/
 /**
  * OJO con la palabra "global":
  * este fichero es un MÓDULO (tiene import/export o el proyecto usa ESM),
  * así que `var` NO crea una variable global de verdad: se queda dentro del módulo.
  * En un script clásico de navegador sí colgaría de `window`.
  */
-
+/*
 // ---------- Hoisting ----------
 // `var` se "eleva" al principio: la DECLARACIÓN sube, el VALOR no.
 // Por eso leerla antes de asignarla da `undefined` en vez de un error.
@@ -52,9 +53,19 @@ console.log(`var redeclarada -> ${repetida}`);
 let noRepetible = "A";
 // let noRepetible = "B";   // Error: Cannot redeclare block-scoped variable.
 console.log(`let no se redeclara -> ${noRepetible}`);
+*/
 
 /**
- * REGLA PARA EL CURSO (y para Angular):
- * usa `const` por defecto y `let` solo si necesitas reasignar. `var` no se usa.
- */
-export {};
+   * REGLA PARA EL CURSO (y para Angular):
+   * usa `const` por defecto y `let` solo si necesitas reasignar. `var` no se usa.
+    export {};
+*/
+
+let nombre = "Cristian";
+var apellido = "León";
+
+const DNI = "00000000T"
+
+if (nombre=="Cristian") {
+  
+}
