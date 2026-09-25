@@ -69,3 +69,24 @@ const DNI = "00000000T"
 if (nombre=="Cristian") {
   
 }
+
+
+let array = ["posicion 0", "posicion 1", "posicion 0"]
+
+console.log(array);
+
+// console.log(array.length()); // Error length es una propiedad no una funcion "length()"
+
+console.log(array.length);
+
+const objeto = {nombre: "Ana", edad: 20}
+
+console.log(objeto);
+
+array.push(objeto.nombre)
+
+console.log(array);
+
+
+// console.log(objeto.length); // Error property 'length' does not exist on type '{ nombre: string; edad: number; }'.
+
