@@ -87,6 +87,130 @@ array.push(objeto.nombre)
 
 console.log(array);
 
-
 // console.log(objeto.length); // Error property 'length' does not exist on type '{ nombre: string; edad: number; }'.
 
+// Typescript te permite acceder a una variable antes de ser inicializada
+
+// Una funcion se puede llamar desde antes de si quiera hacerse
+
+holamundo(); // Funciona perfectamente
+
+function holamundo() {
+  console.log("hola mundo"); 
+}
+
+// La diferencia entre any y unknown es que typescript siempre te obligara a comprobar el tipo antes
+// Any siempre se declara de forma explicita nunca implicita
+
+let desconocido:unknown = "Cristian"
+
+if (typeof desconocido == "string") { // Esto puede valer para una funcion generica
+  console.log(desconocido.toUpperCase()); 
+}
+
+let cualquiera:any = "Cristian"
+
+console.log(cualquiera.toUpperCase());
+
+// Void se utiliza para indicar que una funcion no va a retornar nada es el por defecto de las funciones
+
+let nada:void 
+
+function saludo() {
+  console.log("hola mundo");
+  if (1) {
+    return "hola"
+  } else {
+    return 2
+  }
+}
+
+console.log(saludo());
+
+// Tambien existe el tipo never el cual se utiliza para indicar que algo nunca termina como una funcion
+// Si tiene fin la funcion sale esto A function returning 'never' cannot have a reachable end point.
+
+/*function saludo2(): never {
+  console.log("hola mundo");
+  while (true) {
+    console.log("hola");
+  }
+}*/
+
+// Si queremos crear una variable y no podemos inicializarla de primeras por el motivo que sea se asigna null
+// se utiliza la "|" para indicar que puede ser de 2 tipos la variable
+// Se tiene que verificar tambien si la variable es de tipo diferent a nulo
+
+  let hola:string|null=null
+  hola = "h"
+
+  console.log(hola);  
+
+
+// Como concepto lo que tiene de diferente null con undefined es que undefined es que la variable todavia no tiene valor
+// Null significa que ese valor esta vacio
+
+let hola3:string|undefined = undefined
+
+hola3 = "hola"
+
+console.log(hola3.toUpperCase());
+
+// Concatenar
+
+let palabra = "palabra"
+
+// Utilizamos la comilla al lado de la p para poder concatenar 
+// (se utilizan mucho en angular)
+console.log(`Hola ${palabra}`);
+console.log(`Hola ${1 + 2}`);
+// Tambien se puede utilizar el operador ternario
+let edad = 18;
+console.log(`Hola ${edad==18?"Mayor":"Menor"}`);
+// Incluso llamadas a funciones (se utilizan mucho en angular)
+function nombre2():string {
+  return "Jose antonio"
+}
+
+console.log(`Hola ${nombre2()}`);
+
+console.log(`Hola ${nombre2}`); // Esto es lo que pasa cuando no llamas bien a la funcion
+
+// Operadores
+
+// AND
+console.log(true&&false);
+
+// OR
+console.log(true||false);
+
+// Negacion
+console.log(!false);
+
+// Modulo
+console.log(1%10);
+
+// Potencia
+console.log(1**10);
+
+// Incremento y decremento
+let edad2 = 5;
+console.log(edad2++); // Asi hace que muestre antes la variable y despues aumente
+console.log(edad2);
+
+console.log(++edad2);
+
+console.log(edad2--); // Asi hace que muestre antes la variable y despues aumente
+console.log(edad2);
+
+console.log(--edad2);
+
+// Interfaces
+
+interface Usuario { // Los nombres de las interfaces empiezan con mayuscula
+  nombre:string;
+  edad:number;
+  dni?:string; // La ? para hacerlo opcional
+}
+
+let u1:Usuario = {nombre:"Jose", edad:400}
