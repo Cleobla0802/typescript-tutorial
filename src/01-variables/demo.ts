@@ -60,7 +60,7 @@ console.log(`let no se redeclara -> ${noRepetible}`);
    * usa `const` por defecto y `let` solo si necesitas reasignar. `var` no se usa.
     export {};
 */
-
+/*
 let nombre = "Cristian";
 var apellido = "León";
 
@@ -126,7 +126,7 @@ function saludo() {
 }
 
 console.log(saludo());
-
+*/
 // Tambien existe el tipo never el cual se utiliza para indicar que algo nunca termina como una funcion
 // Si tiene fin la funcion sale esto A function returning 'never' cannot have a reachable end point.
 
@@ -140,7 +140,7 @@ console.log(saludo());
 // Si queremos crear una variable y no podemos inicializarla de primeras por el motivo que sea se asigna null
 // se utiliza la "|" para indicar que puede ser de 2 tipos la variable
 // Se tiene que verificar tambien si la variable es de tipo diferent a nulo
-
+/*
   let hola:string|null=null
   hola = "h"
 
@@ -204,13 +204,92 @@ console.log(edad2--); // Asi hace que muestre antes la variable y despues aument
 console.log(edad2);
 
 console.log(--edad2);
-
+*/
 // Interfaces
 
-interface Usuario { // Los nombres de las interfaces empiezan con mayuscula
+/*interface Usuario { // Los nombres de las interfaces empiezan con mayuscula
   nombre:string;
   edad:number;
   dni?:string; // La ? para hacerlo opcional
 }
 
-let u1:Usuario = {nombre:"Jose", edad:400}
+let u1:Usuario = {nombre:"Jose", edad:400}*/
+
+/*
+
+type Usuario = {nombre: string; direccion?: {ciudad:string}};
+
+const u1: Usuario = {nombre: "Ana", direccion: {ciudad: "cadiz"}}
+const u2: Usuario = {nombre: "Ana"}
+
+*/
+
+/*
+console.log(`Direccion de Ana ${u1.direccion?.ciudad}`);
+console.log(`Direccion de Jose ${u2.direccion?.ciudad}`);
+
+if (u2.direccion?.ciudad == undefined) {
+  console.log(`Direccion de Jose no se conoce`);
+}
+*/
+
+/*console.log(`Direccion de Jose ${u2.direccion?.ciudad ?? "No se conoce"}`);*/
+
+/* ?? -> undefined o null */
+
+/* Operador ternario */
+
+/*
+let nombre: string|null=null;
+let edad:number=18
+*/
+/** variable>=X? 'Lo que sale si es true' : 'Lo que sale si es false' */
+/*console.log(`Jose es ${edad>=18?'mayor de edad':'es menor de edad'}`);*/
+
+
+/** SI ES SEGURO QUE NO VA A SER NULO UTILIZO !*/
+
+/* console.log(`hola ${nombre!.toUpperCase()}`); */
+
+/*
+let numeros = [1,2,3,4,5,6]
+let numeros_copy = [...numeros]
+
+console.log(`original: ${numeros}`);
+console.log(`copia: ${numeros_copy}`);
+*/
+
+/** ACCEDER A LA POSICION DE UN ARRAY Y METERLO EN UNA VARIABLE */
+/*
+let numeros = [1,2,3,4,5,6]
+
+let [primero,segundo] = numeros;
+
+console.log(primero);
+console.log(segundo);
+
+/** Esto es un ejemplo que se podria aplicar a la realidad */
+/*
+type Persona = {nombre:string, apellidos: string, edad:number}
+
+function actualizar(persona:Persona) {
+  // En un caso de la vida real podriamos utilizar esto para cuando querramos por ejemplo actualizar algo en la base de datos
+  // como los datos de un usuario
+  let {nombre:nuevo_valor, apellidos:nuevo_apellido}=persona
+  console.log(nuevo_valor);
+
+  // actualizar base de datos
+}
+*/
+
+/** COPIAR LA ESTRUCTURA DE ARRAYS SOLO CON UN METODO */
+
+let array = [1,2,"tres",4,5,"seis"]
+
+let copia_array = structuredClone(array);
+
+let array2 = {nombre: "ana", edad:18}
+
+let array2_copia = structuredClone(array2);
+
+console.log(array2_copia);

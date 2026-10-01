@@ -5,6 +5,7 @@
  */
 
 // ---------- Declaración y tipado ----------
+/*
 const numeros: number[] = [3, 5, 8, 11];
 const numeros2: number[] = [15, 21, 27];
 
@@ -28,13 +29,14 @@ console.log("numeros3 ->", numeros3);
 numeros3[0] = 10; // spread hace copia: el original NO se toca
 console.log("numeros3 modificado ->", numeros3);
 console.log("numeros intacto     ->", numeros);
-
+*/
 // ---------- OJO: el spread hace una copia SUPERFICIAL ----------
 /**
  * Con primitivos (number, string, boolean) la copia es total y segura.
  * Con OBJETOS dentro, el spread copia las REFERENCIAS, no los objetos:
  * el array es nuevo, pero los objetos de dentro son los mismos.
  */
+/*
 const alumnos = [{ nombre: "Ana" }, { nombre: "Luis" }];
 const copiaAlumnos = [...alumnos];
 
@@ -125,3 +127,60 @@ console.log("slice ->", miNombre.slice(0, 2)); // copia un trozo, no modifica
 console.log("join  ->", numeros.join(" ")); // array -> string
 
 export {};
+*/
+
+let frutas:string[] = ["manzana","pera","platano","uva"]
+
+console.log(frutas.indexOf("pera")); // Me retorna la posicion de pera, si no esta bien escrito el indexOf te saldra -1
+console.log("Jose Antonio Rodriguez".indexOf("J"));
+
+/** Para evitar hacer funciones con tantas lineas se pueden utilizar directamente un metodo find */
+function findMia(frutas:string[]):string|undefined {
+  for(const elemtno of frutas){
+    if (elemtno.length >= 5) {
+      return elemtno;
+    }
+  }
+  return undefined
+}
+
+console.log(findMia(frutas));
+
+console.log(frutas.findIndex((valor:string)=>{
+  return valor.length>=5;
+}));
+
+frutas.forEach((valor:string)=>{
+  console.log(valor);
+})
+
+frutas = frutas.map((valor:string)=>{
+  return valor.toUpperCase()
+})
+console.log(frutas);
+
+
+let frutas_nuevas = frutas.filter((valor:string)=>{
+  return valor.length>5
+})
+console.log(frutas_nuevas);
+
+
+// Todo esto se puede hacer en una linea
+// console.log(frutas.find((valor:string)=>{return valor}));
+
+/*
+let arr:number[] = [1,2,3,4,5,6]
+
+arr.push(7) // Meter un nuevo elemento al final
+console.log(arr);
+
+arr.unshift(0) // Meter un nuevo elemento al principio
+console.log(arr);
+
+arr.pop() // Quitar elemento del final
+arr.shift() // Quitar elemento del principio
+console.log(arr);
+
+*/
+
