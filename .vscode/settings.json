@@ -7,5 +7,5 @@
 
   // Al depurar, ejecutar "npm run play" en la terminal integrada engancha
   // el depurador automáticamente si hay un breakpoint o un `debugger;`.
-  "debug.javascript.autoAttachFilter": "smart"
+  "debug.javascript.autoAttachFilter": "disabled"
 }

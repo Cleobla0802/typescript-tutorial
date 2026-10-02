@@ -128,13 +128,14 @@ console.log("join  ->", numeros.join(" ")); // array -> string
 
 export {};
 */
-
+/*
 let frutas:string[] = ["manzana","pera","platano","uva"]
 
 console.log(frutas.indexOf("pera")); // Me retorna la posicion de pera, si no esta bien escrito el indexOf te saldra -1
 console.log("Jose Antonio Rodriguez".indexOf("J"));
-
+*/
 /** Para evitar hacer funciones con tantas lineas se pueden utilizar directamente un metodo find */
+/*
 function findMia(frutas:string[]):string|undefined {
   for(const elemtno of frutas){
     if (elemtno.length >= 5) {
@@ -164,7 +165,7 @@ let frutas_nuevas = frutas.filter((valor:string)=>{
   return valor.length>5
 })
 console.log(frutas_nuevas);
-
+*/
 
 // Todo esto se puede hacer en una linea
 // console.log(frutas.find((valor:string)=>{return valor}));
@@ -183,4 +184,21 @@ arr.shift() // Quitar elemento del principio
 console.log(arr);
 
 */
+/*
+
+// Map es una funciona que siempre crea un array nuevo a partir de otro nunca modifica un mismo array siempre crea otro
+
+let numeros = [1,2,3,4,5,6]
+
+let numerosCopia = numeros.map(valor => valor * 2)
+
+console.log(numerosCopia);
+
+*/
+
+let notas:number[] = [2.3,7,5,3,6.8,9.8]
+
+let aprobados:number = notas.filter((nota: number)=> {return nota>=5}).length;
+console.log(aprobados);
+
 
