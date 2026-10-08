@@ -196,9 +196,21 @@ console.log(numerosCopia);
 
 */
 
-let notas:number[] = [2.3,7,5,3,6.8,9.8]
+let notas:number[] = [2.3,7,5,3,6.8,9.8,4.9]
 
-let aprobados:number = notas.filter((nota: number)=> {return nota>=5}).length;
+let aprobados = notas.filter(notas => notas>=5);
 console.log(aprobados);
 
+let numerosArray:number[] = [1,2,3,4,5]
 
+let multiplicados = numerosArray.map(numero => numero*2)
+console.log(multiplicados);
+
+let cinco:number|undefined = numerosArray.find(numero => numero == 5);
+
+console.log(cinco);
+ 
+const indice = numerosArray.findIndex(numero => numero == 5)
+console.log(indice);
+
+numerosArray.includes()
