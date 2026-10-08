@@ -195,7 +195,7 @@ let numerosCopia = numeros.map(valor => valor * 2)
 console.log(numerosCopia);
 
 */
-
+/*
 let notas:number[] = [2.3,7,5,3,6.8,9.8,4.9]
 
 let aprobados = notas.filter(notas => notas>=5);
@@ -214,3 +214,92 @@ const indice = numerosArray.findIndex(numero => numero == 5)
 console.log(indice);
 
 numerosArray.includes()
+*/
+
+/**
+ * ESTE ES MUY IMPORTANTE
+ * ES EL REDUCE
+ * 
+ * es un for que recoge un array y solo devuelve un unico valor
+ * Tiene un acumulador y un valor actual, en cada iteracion mete el primer valor del array en la variable valor actual
+ * y despues con lo que sea que se haga dentro de las llaves {} devolvera un valor que se metera en el acumulador
+ * y seguira igual hasta terminar todo el array
+ * 
+ * 
+      let numeros2:number[] = [4,1,2,3,1,5,5.5]
+
+      let numeroGrande = numeros2.reduce((acumulador, valorActual)=>{return acumulador >= valorActual ? acumulador:valorActual})
+      console.log(numeroGrande);
+ * 
+ */
+
+/**
+ * ESTE ES EL SORT FUNCION QUE SIRVE PARA ORDENAR ASCENDENTE O DESCENDETEMENTE UN ARRAY
+ * Se tiene que poner algo dentro del array para ordenarlos 
+ * 
+ *  let numeros2:number[] = [1,2,100,2,4,60]
+
+    numeros2.sort((a,b)=>{return b-a}) // ESTE ES DE FORMA DESCENDENTE
+    console.log(numeros2);
+ * 
+ */
+
+/**
+ * METODO JOIN PARA STRINGS
+ * El join simplemente es para recoger todo los strings de un array de strings y hacerlo uno
+ * Utiliza un separador que es el que tu le pongas, es simplemente para poner que habra entremedias de los strings
+ * 
+ * METODO SLICE PARA STRINGS
+ * 
+  let nombre:string[] = ["Jose", "Antonio", "Rodriguez", "Torres"]
+  
+  let nombreCompleto = nombre.join(" ") // O join("-") por ejemplo
+  
+  let apellidos = nombre.slice(2,3)
+  
+  console.log(nombreCompleto);
+  console.log(apellidos);
+ * 
+ */
+
+
+/**
+ * UNA TUPLA ES COMO UN ARRAY PERO CON UN LIMITE DE EXTENSION ES DECIR
+ * NO SE PUEDE HACER MAS GRANDE CON UN PUSH COMO UN ARRAY NORMAL
+ * 
+ * Se pueden utilizar para meter 2 objetos o 2 valores como una clave-valor
+ * 
+ *  let nombreEdad: [string,number]=["Jose",80]
+    let nombrePersona = nombreEdad[0]
+    console.log(nombrePersona);
+ */
+/*
+type ProductoTupla = {nombre:string, precio:number}
+type ProductoObject = {nombre:string, precio:number}
+
+let p1:ProductoTupla = ["Champu",9]
+let p2:ProductoObject = {nombre:"Pera",precio:1}
+
+console.log(p1);
+console.log(p2);
+
+const FORDENARARRAYDESCENDENTE = function (a:number,b:number) {
+  return a-b;
+}
+
+let arrayDescendente = [1,4,5,3,5,525312,5,5,761,3123,5,1235452,5,5,2]
+
+arrayDescendente.sort(FORDENARARRAYDESCENDENTE);
+
+
+const FCREACORDENADA = (x:number,y:number)=>{
+  return {cordenadaX:x,cordenadaY:y}
+}
+
+function saludar(nombre:string, apellidos?:string) {
+  console.log(`Hola ${nombre} ${apellidos ?? ""}`);
+}
+
+saludar("Jose")
+
+*/
