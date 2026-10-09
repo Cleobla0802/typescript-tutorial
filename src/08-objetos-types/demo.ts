@@ -6,7 +6,7 @@
 
 // ---------- Objeto literal ----------
 // TS infiere la "forma" del objeto a partir del valor.
-const alumno = {
+/*const alumno = {
   nombre: "Ana",
   edad: 20,
   matriculado: true,
@@ -172,5 +172,17 @@ const {
 
 console.log(`Pedido de ${nombreCliente} con ${lineas.length} líneas`);
 console.log("Unidades totales ->", lineas.reduce((acc, l) => acc + l.unidades, 0));
+
+type Categoria = "Junior" | "Senior" | "Project Manager"
+type DNI = `${string}-${string}`
+type TURL = `http${'s'|''}://${string}.${'es|com'}`
+let url:TURL = "http://marca.es"
+
+let d1:DNI = "0000000-T"
+
+type Persona = {readonly dni?:string, nombre:string, apellido:string, edad?:number, direccion:string}
+type Desarrollador = Persona & {nuss:string, categoria:Categoria, salario:number}
+
+let e1:Desarrollador = {dni:"000000000T", apellido:"Rodriguez", nombre:"Jose", direccion:"Madrid",nuss:"flfkajñsdlñfg", categoria:"Junior",salario:100000,edad:30}
 
 export {};
