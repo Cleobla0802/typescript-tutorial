@@ -187,3 +187,50 @@ let e1:Desarrollador = {dni:"000000000T", apellido:"Rodriguez", nombre:"Jose", d
 
 export {};
 */
+/*
+type Direccion = {calle:string, numero:number}
+type Persona = {nombre:string, apellido:string, direccion:{calle:string, numero:number}}
+
+let tupla1:[string,string] = ["JOSE","RODRIGUEZ"]
+
+let p1 = {nombre:"Jose",apellido:"Rodriguez",direccion:{calle:"Rancho",numero:1}}
+
+let {nombre,apellido} = p1
+
+console.log(apellido);
+*/
+
+enum Dia { // Tambien funciona como clave valor
+  Lunes,
+  Martes,
+  Miercoles,
+  Jueves,
+  Viernes,
+  Sabado,
+  Domingo
+}
+
+console.log(Dia[6]); // Sale el valor
+console.log(Dia.Domingo); // Sale la posicion
+
+type EMAIL = `${string}@${"gmail"|"outlook"|"hotmail"}.${"es"|"com"}`
+
+interface Usuario {
+  id:number,
+  nombre:string,
+  email:EMAIL
+}
+
+let u1:Usuario = {id:1,nombre:"Jose",email:"jose@gmail.com"}
+
+console.log(u1);
+
+interface Empleado extends Usuario {
+  NUSS:string,
+  edad:number
+}
+
+let u2:Empleado = {id:1,nombre:"Jose",email:"cristian@gmail.com", NUSS:"123",edad:18}
+
+console.log(u2);
+
