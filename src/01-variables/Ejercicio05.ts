@@ -48,3 +48,4 @@ console.log(notaObjeto);
 
 const top3 = [...notas].sort((a,b)=>b-a).slice(0,3);
 console.log(top3);
+
