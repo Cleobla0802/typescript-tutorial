@@ -23,7 +23,7 @@ fichas.forEach(([nombre, nota]) => {
  *    Si ese valor es una tupla, se reparte en varias variables al recibirlo.
  */
 function resumen(lista: Ficha[]): [media: number, aprobados: number, suspensos: number] {
-  const suma = lista.reduce((acc, [, nota]) => acc + nota, 0);
+  const suma = lista.reduce((acc,[, nota]) => acc + nota, 0);
   const aprobados = lista.filter(([, nota]) => nota >= 5).length;
   return [suma / lista.length, aprobados, lista.length - aprobados];
 }

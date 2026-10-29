@@ -199,7 +199,7 @@ let {nombre,apellido} = p1
 
 console.log(apellido);
 */
-
+/*
 enum Dia { // Tambien funciona como clave valor
   Lunes,
   Martes,
@@ -233,4 +233,94 @@ interface Empleado extends Usuario {
 let u2:Empleado = {id:1,nombre:"Jose",email:"cristian@gmail.com", NUSS:"123",edad:18}
 
 console.log(u2);
+*/
+
+// Las interfaces son contratos publicos es decir no se puede hacer un private bastidor:string
+/*
+interface ICoche {
+  marca:string;
+  modelo:string;
+  color:string;
+}
+
+// Esta es la forma larga de hacer un clase
+class Coche implements ICoche {
+
+  // Declaro atributos
+  marca: string;
+  modelo: string;
+  color: string;
+  private bastidor:string;
+
+  // Inicializo atributos
+  constructor(marca:string, modelo:string, color:string, bastidor:string){
+    this.marca = marca;
+    this.modelo = modelo;
+    this.color = color;
+    this.bastidor = bastidor;
+  } 
+
+}
+
+// Declaro objeto
+let c1 = new Coche("SEAT","Leon","Blanco","4854B9AB")
+*/
+/*
+interface ICoche {
+  marca:string;
+  modelo:string;
+  color:string;
+}
+
+abstract class Coche implements ICoche {
+
+  // Inicializo atributos
+  constructor(public marca:string, public modelo:string, public color:string, private bastidor:string){
+
+  } 
+
+  arrancar(){
+    return `Arrancando el ${this.marca} ${this.modelo} con NºBastidor ${this.bastidor}`;
+  }
+
+}
+
+class CocheElectrico extends Coche{
+  constructor(marca:string,modelo:string,color:string,bastidor:string,public matricula:string,public propietario:string){
+    super(marca,modelo,color,bastidor);
+  }
+
+  get getpropietario(){
+    return this.propietario;
+  }
+
+  override arrancar(): string {
+    return `${super.arrancar()}`;
+  }
+
+}
+
+let ce1 = new CocheElectrico("TESLA","T","GRIS","456282AB","789456BC","JUAN");
+console.log(ce1.getpropietario);
+
+class CocheCombustion extends Coche{
+  constructor(marca:string,modelo:string,color:string,bastidor:string,public matricula:string,public propietario:string){
+    super(marca,modelo,color,bastidor);
+  }  
+}
+
+let cc1 = new CocheCombustion("RENAULT","MEGANE","GRIS","123456","789456Q","ROSA");
+
+let coches:Coche[] = [ce1,cc1];
+
+coches.forEach((coche:Coche)=>{
+  console.log(coche.arrancar());
+  if (coche.marca === "TESLA") {
+    coche.color = "Blanco"
+  }
+})
+
+console.log(coches);
+*/
+
 
