@@ -26,8 +26,10 @@ class Expediente {
     public get media() {
         if(this.notas.length === 0){
             return 0;
+        } else {
+            let media:number = this.notas.reduce((acumulador,valorActual)=>{return acumulador+valorActual},0)
+            return media / this.notas.length;
         }
-        return this.notas;
     }
     
     public get calificacion(){
