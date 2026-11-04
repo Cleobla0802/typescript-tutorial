@@ -46,7 +46,8 @@ class Expediente {
         let copiaNotas = structuredClone(this.notas);
         return copiaNotas;
     }
-
 }
+
+const primerExpediente = new Expediente(1,"Ana serrano");
 
 
