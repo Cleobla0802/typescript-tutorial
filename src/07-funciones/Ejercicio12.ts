@@ -1,4 +1,4 @@
-import { error } from "console";
+/*import { error } from "console";
 
 class Expediente {
     private static creados = 0;
@@ -48,3 +48,4 @@ class Expediente {
 }
 
 
+*/

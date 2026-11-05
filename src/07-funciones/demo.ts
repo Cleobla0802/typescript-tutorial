@@ -115,4 +115,19 @@ class Contador {
 }
 console.log("arrow y this ->", new Contador().incrementarBien());
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export {};

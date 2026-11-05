@@ -4,6 +4,8 @@
  * Ejecutar:  npm run play -- src/08-objetos-types/demo.ts
  */
 
+import { Interface } from "readline";
+
 // ---------- Objeto literal ----------
 // TS infiere la "forma" del objeto a partir del valor.
 /*const alumno = {
@@ -323,4 +325,14 @@ coches.forEach((coche:Coche)=>{
 console.log(coches);
 */
 
+const usuario = [
+  {id: 1, nombre: "Luis"},
+  {id: 2, nombre: "Ana"},
+];
 
+const actualizados = usuario.map(usuario =>{
+  usuario.nombre = 'Modificado';
+  return usuario
+})
+
+console.log(usuario);
