@@ -105,7 +105,7 @@ console.log("assertion ->", comoTexto.length);
  * Un TYPE GUARD sí comprueba, y además le enseña a TypeScript lo que ha averiguado.
  * La clave es el tipo de retorno: `dato is Alumno` en vez de `boolean`.
  */
-type Alumno = { nombre: string; curso: string };
+/*type Alumno = { nombre: string; curso: string };
 
 function esAlumno(dato: unknown): dato is Alumno {
   return (
@@ -174,6 +174,7 @@ const {
 
 console.log(`Pedido de ${nombreCliente} con ${lineas.length} líneas`);
 console.log("Unidades totales ->", lineas.reduce((acc, l) => acc + l.unidades, 0));
+
 /*
 type Categoria = "Junior" | "Senior" | "Project Manager"
 type DNI = `${string}-${string}`
@@ -325,14 +326,23 @@ coches.forEach((coche:Coche)=>{
 console.log(coches);
 */
 
-const usuario = [
-  {id: 1, nombre: "Luis"},
-  {id: 2, nombre: "Ana"},
-];
+interface Post {
+  userId:number,
+  id:number,
+  title:string,
+  body:string
+}
 
-const actualizados = usuario.map(usuario =>{
-  usuario.nombre = 'Modificado';
-  return usuario
-})
+async function getDatos():Promise<Post[]> {
+  const URL_POST = "https://jsonplaceholder.typicode.com/posts";
 
-console.log(usuario);
+  let response:Response = await fetch(URL_POST);
+
+  let data = (await response.json() as Post[]);
+
+  return data;
+}
+
+getDatos().then((post:Post[])=>{console.log(post)}).catch((e:Error)=>{console.log(e.message)});
+
+
