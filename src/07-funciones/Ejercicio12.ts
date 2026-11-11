@@ -51,9 +51,6 @@ class Expediente {
 
 const expedientes:Expediente[] = [new Expediente(1, "Ana serrano"), new Expediente(2, "Luis Gil")];
 
-<<<<<<< HEAD
-*/
-=======
 expedientes[0].anadirNota(8);
 expedientes[0].anadirNota(9.5);
 expedientes[0].anadirNota(7);
@@ -76,4 +73,4 @@ console.log(`Historial real tras tocar la copia: ${expedientes[0].notas.length} 
 
 // expedientes[0].notas.push(15);
 // expedientes[0].numero = 9999; Cannot assign to 'numero' because it is a read-only property. 
->>>>>>> 9be1435c9a53dddb908dd1e8f040bc15f787357d
+*/
