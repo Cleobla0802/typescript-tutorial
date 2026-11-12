@@ -325,7 +325,7 @@ coches.forEach((coche:Coche)=>{
 
 console.log(coches);
 */
-
+/*
 interface Post {
   userId:number,
   id:number,
@@ -338,11 +338,75 @@ async function getDatos():Promise<Post[]> {
 
   let response:Response = await fetch(URL_POST);
 
-  let data = (await response.json() as Post[]);
+  let data = await response.json() as Post[];
 
   return data;
 }
 
 getDatos().then((post:Post[])=>{console.log(post)}).catch((e:Error)=>{console.log(e.message)});
+*/
+
+export{}
+
+interface TareaApi {
+  userId:number, 
+  id: number,
+  title: string,
+  completed: boolean
+}
+
+type Tarea = Pick<TareaApi, "id"|"title"|"completed">;
+
+async function obtenerTareas(usuario: number):Promise<Tarea[]> {
+  const urlTareasApi = "https://jsonplaceholder.typicode.com/todos?userId=";
+  let respuesta:Response = await fetch(`${urlTareasApi}${usuario}`);
+  if (!respuesta.ok) {
+    throw new Error(`Error HTTP ${respuesta.status}`);
+  }
+  let data = await respuesta.json() as TareaApi[];
+  //const tareas = data.map((tarea)=>({...tarea as Tarea}))
+  const tareas = structuredClone(data as Tarea[])
+  return tareas;
+}
+
+let tareasCompletadas:Tarea[] = [];
+
+let tareasSinCompletar:Tarea[] = [];
+
+let tareasDeLaApi:Tarea[] = []
+
+obtenerTareas(1).then((tareas)=>{
+  tareas.forEach((tarea)=>{tareasDeLaApi.push(tarea)})
+  console.log(tareasDeLaApi);
+  const tituloMasLargo = tareasDeLaApi.reduce((acumulador,valorActual)=>{return valorActual.title.length>=acumulador.length?valorActual.title:acumulador},"");
+  console.log(tituloMasLargo);
+}).catch((e:Error)=>{console.log(e.message);
+});
+
+obtenerTareas(1).then((tareas)=>{tareas.forEach((tarea)=>{
+  tarea.completed===true?tareasCompletadas.push(tarea):"";
+})
+let resultadoFinal = (tareasCompletadas.length/tareas.length)*100;
+console.log(`${resultadoFinal.toFixed(1)}% de tareas completadas`);
+}).catch((e:Error)=>{console.log(e.message);});
+
+obtenerTareas(1).then((tareas)=>{tareas.forEach((tarea)=>{
+  tarea.completed===false?tareasSinCompletar.push(tarea):"";
+})
+
+const topTitulos = [...tareasSinCompletar].slice(0, 3);
+let resultadoFinal = (tareasSinCompletar.length/tareas.length)*100;
+console.log(`${resultadoFinal.toFixed(1)}% de tareas sin completar`);
+topTitulos.forEach((tarea)=>{console.log(tarea.title);
+})
+}).catch((e:Error)=>{console.log(e.message);});
 
 
+//obtenerTareas(1).then((tareas)=>{console.log(tareas);}).catch((e:Error)=>{console.log(e.message);});
+
+/*
+obtenerTareas(1).then((tareas)=>{tareas.forEach((tarea)=>{
+  tarea.completed===false?console.log(tarea):""})
+}).catch((e:Error)=>{console.log(e.message);
+});
+*/
